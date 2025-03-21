@@ -22,3 +22,4 @@ Values - Count of Units in Stockk
 Tooltips - Sum of Sales
 
 Count of Unit of Stocks = DISTINCTCOUNT('Orders'[Units of Stock])
+First Units in Stock = FIRSTNONBLANK('Orders'[Units of Stock], 1)
