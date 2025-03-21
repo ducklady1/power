@@ -1,24 +1,28 @@
- KNN Method
-
-bankloan <- read.csv("~/Desktop/BI Prac/BANK LOAN.csv")
-
 library(caret)
-index <- createDataPartition(bankloan$DEFAULTER, p=0.8, list=FALSE)
-View(bankloan)
-
-bankloan2 <- subset(bankloan, select = c(-DEFAULTER))
-bankloan3 <- scale(bankloan2)
-
-traindata <- bankloan3[index,]
-testdata <- bankloan2[-index,]
-
-#create class vector
-Ytrain <- bankloan$DEFAULTER[index]
-Ytest <- bankloan$DEFAULTER[-index]
-
 library(class)
-model_knn <- knn(traindata, testdata, k=23, cl= Ytrain)
-table(Ytest, model_knn)
 
-specificity(as.factor(Ytest),as.factor(model_knn),cutoff = 0.5)         
-sensitivity(as.factor(Ytest),as.factor(model_knn),cutoff = 0.5)
+bankloan <- read.csv('C:/Users/Sukh/OneDrive/Desktop/BANK LOAN.csv')
+
+set.seed(123)
+index <- createDataPartition(bankloan$DEFAULTER, p=0.8, list=FALSE)
+
+bankloan_features <- subset(bankloan, select = -DEFAULTER)
+bankloan_scaled <- scale(bankloan_features)
+
+traindata <- bankloan_scaled[index, ]
+testdata <- bankloan_scaled[-index, ]
+
+Ytrain <- as.factor(bankloan$DEFAULTER[index])
+Ytest <- as.factor(bankloan$DEFAULTER[-index])
+
+model_knn <- knn(traindata, testdata, cl = Ytrain, k = 23)
+
+conf_matrix <- confusionMatrix(model_knn, Ytest)
+
+print(conf_matrix)
+
+sensitivity_value <- conf_matrix$byClass["Sensitivity"]
+specificity_value <- conf_matrix$byClass["Specificity"]
+
+cat("Sensitivity:", sensitivity_value, "\n")
+cat("Specificity:", specificity_value, "\n")
