@@ -1,0 +1,24 @@
+Matrix 
+
+Region
+
+Rows - Region
+Columns - Year
+Values - First Units in Stock
+	 Sum of Sales
+
+
+Table
+
+Columns - Region
+	  Year
+	  Units in stock
+	  Sum of Sales
+
+Pie
+
+Legend - Region
+Values - Count of Units in Stockk
+Tooltips - Sum of Sales
+
+Count of Unit of Stocks = DISTINCTCOUNT('Orders'[Units of Stock])
