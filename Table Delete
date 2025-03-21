@@ -1,0 +1,38 @@
+Step 1: Load Data into Power BI
+Open Power BI Desktop.
+Click on Home > Get Data > Excel.
+Select Sample - Superstore.xlsx and click Open.
+Select the Orders and Returns tables.
+Click Transform Data to open Power Query Editor.
+
+Step 2: Transform Data in Power Query Editor
+
+1. Remove Other Columns to Keep Only "Profit"
+In the Orders table:
+Click Choose Columns.
+Select only the Profit column.
+Click OK.
+
+2. Calculate "Line Total" for Each Order
+In the Orders table:
+Click Add Column > Custom Column.
+Enter the formula:
+LineTotal = [Sales] * [Quantity]
+Click OK.
+Ensure LineTotal is set to Currency format.
+
+3. Rename and Reorder Columns
+Rename columns by double-clicking on headers.
+Drag columns to reorder them as needed.
+
+4. Combine Returns and Total Sales Queries
+Click Append Queries > Append Queries as New.
+Select:
+Primary Table: Orders
+Secondary Table: Returns
+Click OK.
+This will create a combined dataset of sales and returns.
+
+Step 3: Load Data and Build Visuals
+Click Close & Apply to save transformations.
+Use the cleaned dataset to create charts and reports in Power BI.
