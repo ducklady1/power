@@ -1,0 +1,18 @@
+Count of Units in Stock 
+Number.Round(Number.RandomBetween(50, 500))
+
+Total Sales
+X - Year
+Y - Sum of Sales
+
+Product 
+X - Count of Units in Stock
+Y - Product Name
+
+Region
+X - Count of Units in Stock
+Y - Region
+
+Category
+X - Count of Units in Stock
+Y - Category
