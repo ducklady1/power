@@ -16,3 +16,6 @@ Y - Region
 Category
 X - Count of Units in Stock
 Y - Category
+
+Count of Unit of Stocks = DISTINCTCOUNT('Orders'[Units of Stock])
+First Units in Stock = FIRSTNONBLANK('Orders'[Units of Stock], 1)
